@@ -23,7 +23,7 @@ const HeaderBar = () => {
           <span className={styles.right}>
             <Link
               className={styles.action}
-              href="https://github.com/blrchen/gptlite"
+              href="https://github.com/blrchen/gptlite-minimal"
               target="_blank"
             >
               <GithubOutlined />
