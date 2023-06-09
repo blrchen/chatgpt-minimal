@@ -1,10 +1,16 @@
-# GPT Lite Minimal
+# ChatGPT Minimal
 
 [English](./README.md) | 简体中文
 
-GPT Lite Minimal是一个基于 Next.js 和 AntD 的轻量级、高速的ChatGPT UI 应用，支持OpenAI和Azure OpenAI账户。
+ChatGPT Minimal 是一个使用 Next.js 和 OpenAI Streaming API 为 GPT-3.5 模型创建的简易聊天机器人。它同时支持 OpenAI 和 Azure OpenAI 帐户。
 
-如需访问具有完整功能的 ChatGPT UI，请前往 [gptlite](https://github.com/blrchen/gptlite)。
+组件：
+- Next.js v13
+- OpenAI Streaming API（GPT-3.5 模型，gpt-3.5-turbo）
+- API 路由
+- 基于 React 和 Ant Design 的聊天机器人用户界面
+
+如需访问具有完整功能的 ChatGPT UI，请前往 [GPT Lite](https://github.com/blrchen/gptlite)。
 
 [在线演示](https://gptlite-minimal.vercel.app)
 ![演示](./docs/images/demo.jpg)
