@@ -1,10 +1,16 @@
-# GPT Lite Minimal
+# ChatGPT Minimal
 
 English | [简体中文](./README.zh-CN.md)
 
-GPT Lite Minimal is a lightweight, fast ChatGPT UI demo application built using Next.js and AntD. It supports both OpenAI and Azure OpenAI accounts.
+ChatGPT Minimal is a lightweight chatbot built using Next.js and the OpenAI Streaming API for the GPT-3.5 model. It supports both OpenAI and Azure OpenAI accounts.
 
-For a full-featured ChatGPT UI, visit [gptlite](https://github.com/blrchen/gptlite).
+Components:
+- Next.js v13
+- OpenAI Streaming API (GPT-3.5 model, gpt-3.5-turbo)
+- API Routes
+- Chatbot UI with React and Ant Design
+
+For a full-featured ChatGPT UI, visit [GPT Lite](https://github.com/blrchen/gptlite).
 
 [Live Demo](https://gptlite-minimal.vercel.app)
 ![demo](./docs/images/demo.jpg)
@@ -26,7 +32,7 @@ You need either an OpenAI account or an Azure OpenAI account.
 
 1. Clone the repository and navigate to the root directory.
 2. Update the `OPENAI_API_KEY` environment variable in the `docker-compose.yml` file.
-3. Build the application using `docker-compose build .`
+3. Build the application using `docker-compose build .`.
 4. Start it by running `docker-compose up -d`.
 
 ## One-click Deploy on Vercel
