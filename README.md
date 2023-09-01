@@ -2,6 +2,12 @@
 
 English | [简体中文](./README.zh-CN.md)
 
+## Demo
+
+Visit [ChatGPT Minimal Demo Site](https://chatgpt-minimal.vercel.app)
+
+## Features
+
 ChatGPT Minimal is a lightweight chatbot built using Next.js and the OpenAI Streaming API for the GPT-3.5 model. It supports both OpenAI and Azure OpenAI accounts.
 
 Components:
@@ -10,55 +16,80 @@ Components:
 - API Routes
 - Chatbot UI with React and Ant Design
 
-For a full-featured ChatGPT UI, visit [GPT Lite](https://github.com/blrchen/gptlite).
-
-[Live Demo](https://gptlite-minimal.vercel.app)
 ![demo](./docs/images/demo.jpg)
+
+For a full-featured ChatGPT UI, visit [ChatGPT Lite](https://github.com/blrchen/chatgpt-lite).
 
 ## Prerequisites
 
-You need either an OpenAI account or an Azure OpenAI account.
+You need an OpenAI or Azure OpenAI account.
 
-## Running Locally
+## Deployment
+
+Refer to the [Environment Variables](#environment-variables) section for required environment variables.
+
+### Deploy on Vercel
+
+Click the button below to deploy on Vercel:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fblrchen%2Fchatgpt-minimal&project-name=chatgpt-minimal&framework=nextjs&repository-name=chatgpt-minimal)
+
+### Deploy with Docker
+
+For OpenAI account users:
+
+```
+docker run -d -p 3000:3000 \
+   -e OPENAI_API_KEY="<REPLACE-ME>" \
+   blrchen/chatgpt-minimal
+```
+
+For Azure OpenAI account users:
+
+```
+docker run -d -p 3000:3000 \
+   -e AZURE_OPENAI_API_BASE_URL="<REPLACE-ME>" \
+   -e AZURE_OPENAI_API_KEY="<REPLACE-ME>" \
+   -e AZURE_OPENAI_DEPLOYMENT="<REPLACE-ME>" \
+   blrchen/chatgpt-minimal
+```
+
+## Development
+
+### Running Locally
 
 1. Install NodeJS 18.
 2. Clone the repository.
 3. Install dependencies with `npm install`.
-4. Set the `OPENAI_API_KEY` environment variable.
+4. Copy `.env.example` to `.env.local` and modify environment variables accordingly.
 5. Start the application using `npm run dev`.
 6. Visit `http://localhost:3000` in your browser.
 
-## Run with Docker
+### Running Locally with Docker
 
 1. Clone the repository and navigate to the root directory.
 2. Update the `OPENAI_API_KEY` environment variable in the `docker-compose.yml` file.
 3. Build the application using `docker-compose build .`.
-4. Start it by running `docker-compose up -d`.
-
-## One-click Deploy on Vercel
-
-Click the button below to deploy to Vercel:
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fblrchen%2Fgptlite-minimal&project-name=gptlite-minimal&framework=nextjs&repository-name=gptlite-minimal)
+4. Start the application by running `docker-compose up -d`.
 
 ## Environment Variables
 
-For OpenAI-specific environments:
+Required environment variables:
 
-| Name                | Description                                                                                                                      | Default Value         |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| OPENAI_API_BASE_URL | Use only if you intend to use a reserved proxy for `api.openai.com`.                                                            | `https://api.openai.com` |
-| OPENAI_API_KEY      | Obtain secret key string from the [Open AI API website](https://platform.openai.com/account/api-keys).                              |
+For OpenAI account:
 
-For Azure Open AI-specific environments:
+| Name                | Description                                                                                             | Default Value            |
+|---------------------|---------------------------------------------------------------------------------------------------------|--------------------------|
+| OPENAI_API_BASE_URL | Use if you intend to use a reverse proxy for `api.openai.com`.                                          | `https://api.openai.com` |
+| OPENAI_API_KEY      | Secret key string obtained from the [OpenAI API website](https://platform.openai.com/account/api-keys). |
 
-| Name                       | Description                                    |
-|----------------------------|------------------------------------------------|
-| AZURE_OPENAI_API_BASE_URL  | Endpoint (e.g., https://xxx.openai.azure.com). |
-| AZURE_OPENAI_API_KEY       | Key                                            |
-| AZURE_OPENAI_DEPLOYMENT    | Model deployment name                          |
+For Azure OpenAI account:
+
+| Name                      | Description                                    |
+|---------------------------|------------------------------------------------|
+| AZURE_OPENAI_API_BASE_URL | Endpoint (e.g., https://xxx.openai.azure.com). |
+| AZURE_OPENAI_API_KEY      | Key                                            |
+| AZURE_OPENAI_DEPLOYMENT   | Model deployment name                          |
 
 ## Contribution
-We welcome PRs of any size.
 
-## Disclaimers
-This code is intended solely for demonstration and testing purposes.
+We welcome PRs of all sizes.
