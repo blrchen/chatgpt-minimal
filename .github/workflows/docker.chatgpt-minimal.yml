@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'chatgpt-minimal/**'
 
 jobs:
   build_and_push_image:
@@ -32,8 +30,8 @@ jobs:
       - name: Build and push multi-arch image
         uses: docker/build-push-action@v4
         with:
-          context: ./chatgpt-minimal
-          file: chatgpt-minimal/Dockerfile
+          context: .
+          file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
