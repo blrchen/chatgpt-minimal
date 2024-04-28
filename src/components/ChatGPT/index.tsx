@@ -3,13 +3,14 @@ import React from 'react'
 import { ChatGPTProps, ChatRole } from './interface'
 import MessageItem from './MessageItem'
 import SendBar from './SendBar'
-import { useChatGPT } from './useChatGPT'
+// import { useChatGPT } from './useChatGPT'
+import { useGemma } from './useGemma'
 
 import './index.less'
 import 'highlight.js/styles/atom-one-dark.css'
 
 const ChatGPT = (props: ChatGPTProps) => {
-  const { loading, disabled, messages, currentMessage, onSend, onClear, onStop } = useChatGPT(props)
+  const { loading, disabled, messages, currentMessage, onSend, onClear, onStop } = useGemma(props)
 
   return (
     <div className="chat-wrapper">

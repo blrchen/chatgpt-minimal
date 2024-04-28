@@ -16,7 +16,7 @@ const HeaderBar = () => {
         <div className={styles.logoBar}>
           <Link href="/">
             <img alt="logo" src="/logo192.png" />
-            <h1>ChatGPT Minimal</h1>
+            <h1>Chatterbox</h1>
           </Link>
         </div>
         <Space className={styles.right} size={0}>
