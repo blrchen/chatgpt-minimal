@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
+    "@mediapipe/tasks-genai": "^0.10.12",
     "antd": "4.23.6",
     "clipboard": "2.0.11",
     "eventsource-parser": "1.0.0",
