@@ -1,15 +1,17 @@
 import React from 'react'
 
 import { GithubOutlined } from '@ant-design/icons'
-import { Layout, Space, Typography } from 'antd'
+import { Layout, Space, Switch, Typography } from 'antd'
 
 import styles from './index.module.less'
+import { useTheme } from '@/Contexts/ThemeContext'
 
 const { Link } = Typography
 
 const { Header } = Layout
 
 const HeaderBar = () => {
+  const { theme, toggleTheme } = useTheme()
   return (
     <>
       <Header className={styles.header}>
@@ -20,6 +22,12 @@ const HeaderBar = () => {
           </Link>
         </div>
         <Space className={styles.right} size={0}>
+          <Switch
+            checked={theme === 'dark'}
+            onChange={toggleTheme}
+            checkedChildren="Dark"
+            unCheckedChildren="Light"
+          />
           <span className={styles.right}>
             <Link
               className={styles.action}

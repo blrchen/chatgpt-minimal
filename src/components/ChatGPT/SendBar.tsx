@@ -4,9 +4,11 @@ import { ClearOutlined, SendOutlined } from '@ant-design/icons'
 
 import { ChatRole, SendBarProps } from './interface'
 import Show from './Show'
+import { useTheme } from '@/Contexts/ThemeContext'
 
 const SendBar = (props: SendBarProps) => {
   const { loading, disabled, onSend, onClear, onStop } = props
+  const { theme } = useTheme()
 
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
@@ -47,6 +49,16 @@ const SendBar = (props: SendBarProps) => {
     }
   }
 
+  const buttonStyle = {
+    backgroundColor: theme === 'light' ? '' : '#001529',
+    color: theme === 'light' ? 'gray' : 'white'
+  }
+  const textAreaStyle = {
+    backgroundColor: theme === 'light' ? '' : '#BDBDBD',
+    caretColor: '#001529',
+    color: '#001529'
+  }
+
   return (
     <Show
       fallback={
@@ -69,11 +81,24 @@ const SendBar = (props: SendBarProps) => {
           rows={1}
           onKeyDown={onKeydown}
           onInput={onInputAutoSize}
+          style={textAreaStyle}
         />
-        <button className="button" title="Send" disabled={disabled} onClick={handleSend}>
+        <button
+          className="button"
+          title="Send"
+          disabled={disabled}
+          onClick={handleSend}
+          style={buttonStyle}
+        >
           <SendOutlined />
         </button>
-        <button className="button" title="Clear" disabled={disabled} onClick={handleClear}>
+        <button
+          className="button"
+          title="Clear"
+          disabled={disabled}
+          onClick={handleClear}
+          style={buttonStyle}
+        >
           <ClearOutlined />
         </button>
       </div>
